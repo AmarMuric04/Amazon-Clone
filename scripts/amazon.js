@@ -52,7 +52,7 @@ products.forEach((product) => {
             <div class="product-rating-count link-primary">${rating.count}</div>
           </div>
 
-          <div class="product-price">${priceCents / 100}$</div>
+          <div class="product-price">${(priceCents / 100).toFixed(2)}$</div>
 
           <div class="product-quantity-container">
             <select>
@@ -79,4 +79,4 @@ products.forEach((product) => {
           <button class="add-to-cart-button button-primary">Add to Cart</button>
         </div> `;
 });
-document.querySelector(".products-grid").innerHTML = productsHTML;
+document.querySelector(".js-products-grid").innerHTML = productsHTML;
