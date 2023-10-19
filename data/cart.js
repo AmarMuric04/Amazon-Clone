@@ -48,7 +48,15 @@ export function updateCartQuantity(productId, newQuantity) {
     }
   });
 
+  if (isNaN(newQuantity)) {
+    alert("Not a number");
+    newQuantity = matchingItem.quantity;
+  } else if (newQuantity > 10 || newQuantity < 0) {
+    alert("Number is either bigger than 10, or smaller than 0");
+    newQuantity = matchingItem.quantity;
+  }
   matchingItem.quantity = newQuantity;
-
+  document.querySelector(`.js-quantity-label-${productId}`).textContent =
+    newQuantity;
   saveToStorage();
 }
